@@ -1,0 +1,33 @@
+<div>    <ul class="nav navbar-nav">
+      <li class="active"><a href="index.php">Home</a></li>
+    </ul>
+  </div>
+</nav>
+ <p><?= @$this->flash->output(); ?></p>
+<?php
+if ($messages->count() > 0) {
+    ?>
+    <table id="identity" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%" >
+        <thead class="thead-light">
+        <tr>
+            <th>#</th>
+            <th>Message</th>
+            <th>Date Created</th>
+            <th>Date Modified</th>
+        </tr>
+        </thead>
+        <tfoot class= "table-bordered">
+        </tfoot>
+        <tbody class="table-success">
+        <?php foreach ($messages as $messages) { ?>
+            <tr>
+                <td class="table-primary" ><?php echo $messages->id; ?></td>
+                <td class="table-secondary"><?php echo $messages->message; ?></td>
+                <td class="table-warning" ><?php echo $messages->date_created; ?></td>
+                <td class="table-danger"><?php echo $messages->date_modified; ?></td>
+            </tr>
+        <?php } ?>
+        </tbody>
+    </table>
+
+    <?php } ?>
